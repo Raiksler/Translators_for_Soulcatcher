@@ -437,7 +437,7 @@ class GoogleV2(Tse):
             self.language_map = None
         time.sleep(sleep_seconds)
         self.query_count += 1
-        return data if is_detail_result else [' '.join([x[0] for x in (data[1][0][0][5] or data[1][0])]), data[2:4][0]] #   Moded by Raiksler to return not only translation, but also language code.
+        return data if is_detail_result else {"text" : ' '.join([x[0] for x in (data[1][0][0][5] or data[1][0])]), "code" : data[2:4][0]} #   Moded by Raiksler to return not only translation, but also language code.
 
 
 class Baidu(Tse):
